@@ -21,6 +21,12 @@ namespace Dark_Lyrics_Launcher
       Icon = Imaging.CreateBitmapSourceFromHBitmap(Properties.Resources.DarklyricsFavicon1.GetHbitmap(), IntPtr.Zero,
         Int32Rect.Empty,
         BitmapSizeOptions.FromEmptyOptions());
+
+      ArtistComboBox.Items.Clear();
+      foreach (var artist in ArtistsReader.Artists())
+      {
+        ArtistComboBox.Items.Add(new ListBoxItem {Content = artist});
+      }
     }
 
     private string Artist { get { return ArtistComboBox.Text; } }
